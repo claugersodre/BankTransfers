@@ -6,9 +6,13 @@ import Button from 'react-bootstrap/Button'
 const CreateUser = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-
+  const clear = () => {
+    setName('')
+    setPassword('')
+  }
   const createUser = async () => {
     CreateUserService(name, password)
+    clear()
   }
 
   return (
