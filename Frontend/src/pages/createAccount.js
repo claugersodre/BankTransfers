@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import CreateAccountService from './api/accounts/accountsServices'
-import GetAllUsers from './api/user/userServices'
+import CreateAccountService from "./api/accounts/accountsServices"
+import GetAllUsers from "./api/user/userServices"
+import Button from 'react-bootstrap/Button'
 
 const CreateAccount = () => {
   const [userId, setUserId] = useState('')
@@ -32,32 +33,65 @@ const CreateAccount = () => {
   }
 
   return (
-    <div>
+    <div className='row' >
       <h1>Create Account</h1>
-      <select value={userId} onChange={e => setUserId(e.target.value)}>
-        <option value=''>Select User ID</option>
-        {users.length > 0 &&
-          users.map(user => (
-            <option key={user.id} value={user.id}>
-              {user.name}
-            </option>
-          ))}
+      <label
+        className="col-md-2"
+      >Select User
+      </label>
+      <select
+        className="col-md-10 mb-1"
+        value={userId} onChange={(e) => setUserId(e.target.value)}
+        required
+      >
+        <option value="">Select User</option>
+        {users.length > 0 && users.map(user => (
+          <option key={user.id} value={user.id}>{user.name}</option>
+        ))}
       </select>
-      <select value={type} onChange={e => setType(e.target.value)}>
-        <option value='savings'>Savings</option>
-        <option value='checking'>Checking</option>
+      <label
+        className="col-md-2"
+      >Select Account Type
+      </label>
+      <select
+        className="col-md-10 mb-1"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        required
+      >
+        <option
+          value="savings"
+        >Savings</option>
+        <option
+          value="checking"
+        >Checking</option>
       </select>
+      <label
+        className="col-md-2"
+      >Insert initial amount
+      </label>
       <input
-        type='number'
-        placeholder='Initial Amount'
+        className="col-md-10 mb-1"
+        type="number"
+        placeholder="Initial Amount"
         value={amount}
         onChange={e => setAmount(e.target.value)}
       />
-      <button onClick={handleCreateAccount}>Create Account</button>
+      <Button
+        onClick={handleCreateAccount}
+        disabled={!amount || !type || !userId}
+        variant="primary"
+        className="col-md-2 mt-2"
+      >Create Account
+      </Button>
       <br />
       <div>
-        <Link href='/'>
-          <p>Back to home</p>
+        <Link href="/">
+          <Button
+            style={{ marginLeft: '-11px' }}
+            variant="danger"
+            className="col-md-2 mt-2"
+          >Back to home</Button>
         </Link>
       </div>
     </div>

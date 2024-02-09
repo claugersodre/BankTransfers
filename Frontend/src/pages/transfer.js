@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import TransferrService from './api/transfer/transferServices'
 import GetAllUsers from './api/user/userServices'
+import Button from 'react-bootstrap/Button'
 
 const Transfer = () => {
   const [fromAccountId, setFromAccountId] = useState('')
@@ -10,7 +11,7 @@ const Transfer = () => {
   const [users, setUsers] = useState([])
   const [selectedUser, setSelectedUser] = useState(null)
   const [fromAccounts, setFromAccounts] = useState([])
-  
+
   const fetchData = async () => {
     try {
       const data = await GetAllUsers()
@@ -43,10 +44,15 @@ const Transfer = () => {
   }
 
   return (
-    <div>
+    <div className='row' >
       <h1>Transfer Amount</h1>
-      <label>From User:</label>
+      <label
+        className="col-md-2"
+      >
+        From User:
+      </label>
       <select
+        className="col-md-10 mb-1"
         value={selectedUser ? selectedUser.id : ''}
         onChange={e => {
           const userId = e.target.value
@@ -63,8 +69,13 @@ const Transfer = () => {
             </option>
           ))}
       </select>
-      <label>From Account:</label>
+      <label
+        className="col-md-2"
+      >
+        From Account:
+      </label>
       <select
+        className="col-md-10 mb-1"
         value={fromAccountId}
         onChange={e => setFromAccountId(e.target.value)}
         required
@@ -78,9 +89,15 @@ const Transfer = () => {
         ))}
       </select>
       {fromAccountId && (
-        <div>
-          <label>
-            Current Amount:{' '}
+        <div class="row">
+          <lablel
+            className="col-md-2"
+          >
+            Current Amount:
+          </lablel>
+          <label
+            className="col-md-1"
+          >
             {fromAccounts.filter(e => e.id == fromAccountId).map(e => e.amount)}
             {console.log(
               fromAccountId ? false : true,
@@ -90,31 +107,47 @@ const Transfer = () => {
           </label>
         </div>
       )}
-      <label>To Account: </label>
+      <label
+        className="col-md-2"
+      >To Account: </label>
       <input
+        className="col-md-10 mb-1"
         type='text'
         placeholder='To Account ID'
         value={toAccountId}
         onChange={e => setToAccountId(e.target.value)}
         required
       />
+      <lablel
+        className="col-md-2"
+      >
+        Amount
+      </lablel>
+
       <input
+        className="col-md-10 mb-1"
         type='number'
         placeholder='Amount'
         value={amount}
         onChange={e => setAmount(e.target.value)}
         required
       />
-      <button
+      <Button
         onClick={handleTransfer}
         disabled={!fromAccountId || !toAccountId || !amount}
+        variant="primary"
+        className="col-md-2 mt-2"
       >
         Transfer
-      </button>
+      </Button>
       <br />
       <div>
-        <Link href='/'>
-          <p>Back to home</p>
+        <Link href="/">
+          <Button
+            style={{ marginLeft: '-11px' }}
+            variant="danger"
+            className="col-md-2 mt-2"
+          >Back to home</Button>
         </Link>
       </div>
     </div>
