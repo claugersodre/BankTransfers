@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import TransferrService from './api/transfer/transferServices'
-import GetAllUsers from './api/user/userServices'
+import GetAllUsers, { GetAllUsersClientSide } from './api/user/userServices'
 import Button from 'react-bootstrap/Button'
 
 const Transfer = ({ data }) => {
@@ -36,10 +36,15 @@ const Transfer = ({ data }) => {
     setToAccountId('')
     setAmount('')
   }
+  const fetchDataClientSide = async () => {
+    const response = await GetAllUsersClientSide()
+    console.log(response)
+    setUsers(response)
+  }
   const handleTransfer = async () => {
     await TransferrService(fromAccountId, toAccountId, amount)
     clearImput()
-    fetchData()
+    fetchDataClientSide()
   }
 
   return (
