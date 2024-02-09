@@ -33,7 +33,7 @@ const Transfer = () => {
 
   return (
     <div className='row' >
-      <h1>Account's balance </h1>
+      <h1>Account's Balance </h1>
       <label
         className="col-md-2"
       >
@@ -72,74 +72,6 @@ const Transfer = () => {
           </label>
         </div>
       )}
-      {/*
-      <select
-        className="col-md-10 mb-1"
-        value={fromAccountId}
-        onChange={e => setFromAccountId(e.target.value)}
-        required
-      >
-        <option value=''>Select Account</option>
-        {fromAccounts.map(account => (
-          <option key={account.id} value={account.id}>
-            {account.id} - {account.type} (Owner:{' '}
-            {selectedUser ? selectedUser.name : ''})
-          </option>
-        ))}
-      </select>
-      {fromAccountId && (
-        <div class="row">
-          <lablel
-            className="col-md-2"
-          >
-            Current Amount:
-          </lablel>
-          <label
-            className="col-md-1"
-          >
-            {fromAccounts.filter(e => e.id == fromAccountId).map(e => e.amount)}
-            {console.log(
-              fromAccountId ? false : true,
-              'fromAccountId',
-              fromAccountId
-            )}
-          </label>
-        </div>
-      )}
-      <label
-        className="col-md-2"
-      >To Account: </label>
-      <input
-        className="col-md-10 mb-1"
-        type='text'
-        placeholder='To Account ID'
-        value={toAccountId}
-        onChange={e => setToAccountId(e.target.value)}
-        required
-      />
-      <lablel
-        className="col-md-2"
-      >
-        Amount
-      </lablel>
-
-      <input
-        className="col-md-10 mb-1"
-        type='number'
-        placeholder='Amount'
-        value={amount}
-        onChange={e => setAmount(e.target.value)}
-        required
-      /> 
-      <Button
-        onClick={handleTransfer}
-        disabled={!fromAccountId || !toAccountId || !amount}
-        variant="primary"
-        className="col-md-2 mt-2"
-      >
-        Transfer
-      </Button>
-      */}
       <br />
       <div>
         <Link href="/">

@@ -34,12 +34,13 @@ const CreateAccount = () => {
 
   return (
     <div className='row' >
-      <h1>Create Account</h1>
+      <h1>Create Account Page</h1>
       <label
         className="col-md-2"
       >Select User
       </label>
       <select
+      id="Select User"
         className="col-md-10 mb-1"
         value={userId} onChange={(e) => setUserId(e.target.value)}
         required
