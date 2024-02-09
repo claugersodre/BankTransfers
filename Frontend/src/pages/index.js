@@ -5,7 +5,7 @@ const Home = () => {
 
 
   return (
-    <div >
+    <div style={{ textAlign: "center" }} >
       <h1>Main Page</h1>
       <div className='mb-2'>
         <Link href="/createUser" passHref>
