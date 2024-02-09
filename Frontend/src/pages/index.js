@@ -19,6 +19,11 @@ const Home = () => {
         </Link>
       </div>
       <div className='mb-2'>
+        <Link href="/balance" passHref>
+          <Button variant="primary">Balance</Button>
+        </Link>
+      </div>
+      <div className='mb-2'>
         <Link href="/transfer">
           <Button variant="primary">Transfer</Button>
         </Link>
