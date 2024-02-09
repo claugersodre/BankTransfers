@@ -4,7 +4,7 @@ import CreateAccountService from "./api/accounts/accountsServices"
 import GetAllUsers from "./api/user/userServices"
 import Button from 'react-bootstrap/Button'
 
-const CreateAccount = () => {
+const CreateAccount = ({ data }) => {
   const [userId, setUserId] = useState('')
   const [type, setType] = useState('savings')
   const [amount, setAmount] = useState('')
@@ -14,7 +14,6 @@ const CreateAccount = () => {
     // Fetch users from the backend when the component mounts
     const fetchData = async () => {
       try {
-        const data = await GetAllUsers()
         setUsers(data)
       } catch (error) {
         console.error('Error fetching users:', error)
@@ -40,7 +39,7 @@ const CreateAccount = () => {
       >Select User
       </label>
       <select
-      id="Select User"
+        id="Select User"
         className="col-md-10 mb-1"
         value={userId} onChange={(e) => setUserId(e.target.value)}
         required
@@ -98,5 +97,8 @@ const CreateAccount = () => {
     </div>
   )
 }
-
+export async function getServerSideProps() {
+  const data = await GetAllUsers()
+  return { props: { data } }
+}
 export default CreateAccount

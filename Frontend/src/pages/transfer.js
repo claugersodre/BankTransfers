@@ -4,7 +4,7 @@ import TransferrService from './api/transfer/transferServices'
 import GetAllUsers from './api/user/userServices'
 import Button from 'react-bootstrap/Button'
 
-const Transfer = () => {
+const Transfer = ({ data }) => {
   const [fromAccountId, setFromAccountId] = useState('')
   const [toAccountId, setToAccountId] = useState('')
   const [amount, setAmount] = useState('')
@@ -14,7 +14,6 @@ const Transfer = () => {
 
   const fetchData = async () => {
     try {
-      const data = await GetAllUsers()
       setUsers(data)
     } catch (error) {
       console.error('Error fetching users:', error)
@@ -153,5 +152,8 @@ const Transfer = () => {
     </div>
   )
 }
-
+export async function getServerSideProps() {
+  const data = await GetAllUsers()
+  return { props: { data } }
+}
 export default Transfer
