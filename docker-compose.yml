@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  app: 
+     image: 'app_frontend'
+     container_name: 'app_frontend'
+     build:
+       context: ./Frontend/
+       dockerfile: ./Dockerfile
+     depends_on:
+       - backend
+     ports:
+       - 3000:3000
+     networks:
+       - next_network
+
+  backend:
+      image: 'backend'
+      container_name: 'backend'
+      build:
+        context: ./Backend/
+        dockerfile: ./Dockerfile
+      ports:
+        - 3001:3001
+      networks:
+        - next_network
+
+networks:
+  next_network:
+    driver: bridge
