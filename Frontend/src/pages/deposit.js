@@ -100,11 +100,6 @@ const Transfer = ({ data }) => {
             className="col-md-1"
           >
             {fromAccounts.filter(e => e.id == fromAccountId).map(e => e.amount)}
-            {console.log(
-              fromAccountId ? false : true,
-              'fromAccountId',
-              fromAccountId
-            )}
           </label>
         </div>
       )}
@@ -128,7 +123,7 @@ const Transfer = ({ data }) => {
         variant="primary"
         className="col-md-2 mt-2"
       >
-        Transfer
+        Deposit
       </Button>
       <br />
       <div>
