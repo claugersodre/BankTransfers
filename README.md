@@ -74,7 +74,19 @@ To check account balances, follow these steps:
     Click on "Balance".
     Select the user from the dropdown menu to view their account balances.
 
+## Performing a Deposit
+
+To deposit funds in a specific account, perform the following steps:
+
+    Return to the main page.
+    Click on "Deposit".
+    Select the user initiating to deposit.
+    Choose the account.
+    Specify the deposit amount.
+    Click on the "Deposit" button to complete the transaction.
+
 ## Performing a Transfer
+    
 
 To transfer funds between accounts, perform the following steps:
 
