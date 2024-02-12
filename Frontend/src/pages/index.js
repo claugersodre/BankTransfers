@@ -5,34 +5,29 @@ const Home = () => {
 
 
   return (
-    <div style={{ textAlign: "center" }} >
-      <h1>Main Page</h1>
-      <div className='mb-2'>
-        <Link href="/createUser" passHref>
-          <Button variant="primary">Create User</Button>
-        </Link>
-      </div>
-      <div className='mb-2'>
-        <Link href="/createAccount">
-          <Button variant="primary">Create Account</Button>
-        </Link>
-      </div>
-      <div className='mb-2'>
-        <Link href="/deposit" passHref>
-          <Button variant="primary">Deposit</Button>
-        </Link>
-      </div>
-      <div className='mb-2'>
-        <Link href="/balance" passHref>
-          <Button variant="primary">Balance</Button>
-        </Link>
-      </div>
-      <div className='mb-2'>
-        <Link href="/transfer">
-          <Button variant="primary">Transfer</Button>
-        </Link>
+    <div className='container'>
+      <div className='row justify-content-center'>
+        <div className='col-6'>
+          <h1 className='row justify-content-center'>Main Page</h1>
+            <Link href="/createUser" passHref className='mb-2 row justify-content-center'>
+              <Button variant="primary">Create User</Button>
+            </Link>
+            <Link href="/createAccount" passHref className='mb-2 row justify-content-center'>
+              <Button variant="primary">Create Account</Button>
+            </Link>
+            <Link href="/deposit" passHref className='mb-2 row justify-content-center'>
+              <Button variant="primary">Deposit</Button>
+            </Link>
+            <Link href="/balance" passHref className='mb-2 row justify-content-center'>
+              <Button variant="primary">Balance</Button>
+            </Link>
+            <Link href="/transfer" passHref className='mb-2 row  justify-content-center'>
+              <Button variant="primary">Transfer</Button>
+            </Link>
+        </div>
       </div>
     </div>
+
   )
 }
 
